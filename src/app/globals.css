@@ -2,6 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS Custom Properties - Our Design System Variables */
+:root {
+  /* Typography Scale */
+  --font-heading: 'var(--font-playfair)', 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Font Sizes with Perfect Line Heights */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+  --text-5xl: 3rem;      /* 48px */
+  --text-6xl: 3.75rem;   /* 60px */
+  
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* Letter Spacing */
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  
+  /* Base Stone Colors */
+  --color-stone-50: #fafaf9;
+  --color-stone-100: #f5f5f4;
+  --color-stone-200: #e7e5e4;
+  --color-stone-300: #d6d3d1;
+  --color-stone-400: #a8a29e;
+  --color-stone-500: #78716c;
+  --color-stone-600: #57534e;
+  --color-stone-700: #44403c;
+  --color-stone-800: #292524;
+  --color-stone-900: #1c1917;
+  
+  /* Warm Accent Colors - Gold Palette */
+  --color-gold-50: #fffbeb;
+  --color-gold-100: #fef3c7;
+  --color-gold-200: #fde68a;
+  --color-gold-300: #fcd34d;
+  --color-gold-400: #fbbf24;
+  --color-gold-500: #f59e0b;
+  --color-gold-600: #d97706;
+  --color-gold-700: #b45309;
+  --color-gold-800: #92400e;
+  --color-gold-900: #78350f;
+  
+  /* Deep Blue Palette for Accents */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  
+  /* Sage Green for Success/Calm */
+  --color-sage-50: #f7f7f4;
+  --color-sage-100: #eeefe8;
+  --color-sage-200: #dddfd1;
+  --color-sage-300: #c4c8b5;
+  --color-sage-400: #a3a98a;
+  --color-sage-500: #858c6b;
+  --color-sage-600: #6b7255;
+  --color-sage-700: #565c47;
+  --color-sage-800: #484d3d;
+  --color-sage-900: #3d4135;
+  
+  /* Semantic Colors */
+  --color-primary: var(--color-stone-800);
+  --color-primary-light: var(--color-stone-600);
+  --color-secondary: var(--color-gold-600);
+  --color-accent: var(--color-slate-700);
+  --color-success: var(--color-sage-600);
+  --color-warning: var(--color-gold-500);
+  --color-error: #dc2626;
+  
+  /* Gradient Definitions */
+  --gradient-warm: linear-gradient(135deg, var(--color-stone-50) 0%, var(--color-gold-50) 100%);
+  --gradient-subtle: linear-gradient(180deg, var(--color-stone-50) 0%, var(--color-stone-100) 100%);
+  --gradient-depth: linear-gradient(145deg, var(--color-stone-100) 0%, var(--color-stone-200) 50%, var(--color-stone-100) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--color-slate-50) 0%, var(--color-stone-50) 100%);
+  
+  /* Advanced Shadow System */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-warm: 0 4px 14px 0 rgba(245, 158, 11, 0.15), 0 2px 4px 0 rgba(245, 158, 11, 0.1);
+  --shadow-quote: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  
+  /* Border Radius Scale */
+  --radius-sm: 0.125rem;    /* 2px */
+  --radius-md: 0.375rem;    /* 6px */
+  --radius-lg: 0.5rem;      /* 8px */
+  --radius-xl: 0.75rem;     /* 12px */
+  --radius-2xl: 1rem;       /* 16px */
+  
+  /* Transition Presets */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 @layer base {
   html {
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
@@ -11,15 +128,273 @@
   }
   
   body {
-    background-color: theme('colors.stone.100');
-    color: theme('colors.stone.800');
+    background: var(--gradient-warm);      /* Subtle warm gradient instead of flat color */
+    background-attachment: fixed;          /* Gradient stays fixed when scrolling */
+    color: var(--color-primary);
+    font-family: var(--font-body);
     font-weight: 300;
-    letter-spacing: 0.025em;
+    letter-spacing: var(--tracking-wide);
+    line-height: var(--leading-normal);
+    min-height: 100vh;                    /* Ensure full height coverage */
   }
 }
 
 @layer components {
   .stoic-transition {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Decorative Quote Styling - The Magic Happens Here! */
+  .quote-text {
+    position: relative; /* This allows us to position the pseudo-elements */
+    padding: 0 2rem;    /* Give space for the decorative quotes */
+    font-family: var(--font-body);
+    font-size: var(--text-2xl);
+    line-height: var(--leading-relaxed);
+    font-weight: 300;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-stone-800);
+  }
+  
+  /* The Opening Quote Mark */
+  .quote-text::before {
+    content: """;                    /* The actual quote character */
+    position: absolute;              /* Position it exactly where we want */
+    top: -0.5rem;                   /* Move it up slightly */
+    left: -0.25rem;                 /* Move it left */
+    font-family: var(--font-heading); /* Use our fancy serif font */
+    font-size: 4rem;                /* Make it BIG */
+    line-height: 1;                 /* Tight line height */
+    color: var(--color-stone-300);  /* Light gray so it's decorative */
+    font-weight: 400;               /* Medium weight */
+    z-index: -1;                    /* Put it behind the text */
+  }
+  
+  /* The Closing Quote Mark */
+  .quote-text::after {
+    content: """;                    /* The closing quote character */
+    position: absolute;              /* Position it exactly where we want */
+    bottom: -2rem;                  /* Move it down */
+    right: -0.25rem;                /* Move it right */
+    font-family: var(--font-heading); /* Use our fancy serif font */
+    font-size: 4rem;                /* Make it BIG */
+    line-height: 1;                 /* Tight line height */
+    color: var(--color-stone-300);  /* Light gray so it's decorative */
+    font-weight: 400;               /* Medium weight */
+    z-index: -1;                    /* Put it behind the text */
+  }
+  
+  /* Elegant Heading Styles */
+  .heading-primary {
+    font-family: var(--font-heading);
+    font-size: var(--text-6xl);     /* 60px */
+    font-weight: 400;               /* Regular weight for elegance */
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-stone-800);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .heading-secondary {
+    font-family: var(--font-body);
+    font-size: var(--text-xl);      /* 20px */
+    font-weight: 300;               /* Light weight */
+    line-height: var(--leading-relaxed);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-stone-600);
+    text-align: center;
+    max-width: 48rem;               /* Limit line length for readability */
+    margin: 0 auto 3rem auto;       /* Center it and add bottom margin */
+  }
+  
+  /* Author Attribution */
+  .quote-author {
+    font-family: var(--font-body);
+    font-size: var(--text-lg);      /* 18px */
+    font-weight: 400;               /* Regular weight */
+    font-style: italic;             /* Italicized for emphasis */
+    color: var(--color-stone-600);
+    text-align: right;              /* Right-aligned like traditional citations */
+    margin-top: 1.5rem;
+    letter-spacing: var(--tracking-wide);
+  }
+  
+  .quote-author::before {
+    content: "— ";                  /* Em dash before author name */
+    color: var(--color-stone-400);
+  }
+  
+  /* Responsive Typography - Mobile First */
+  @media (max-width: 640px) {
+    .heading-primary {
+      font-size: var(--text-4xl);   /* Smaller on mobile: 36px */
+    }
+    
+    .heading-secondary {
+      font-size: var(--text-lg);    /* Smaller on mobile: 18px */
+    }
+    
+    .quote-text {
+      font-size: var(--text-xl);    /* Smaller on mobile: 20px */
+      padding: 0 1rem;              /* Less padding on mobile */
+    }
+    
+    .quote-text::before,
+    .quote-text::after {
+      font-size: 2.5rem;            /* Smaller decorative quotes on mobile */
+    }
+  }
+  
+  /* Quote Card Container */
+  .quote-card {
+    background: var(--gradient-subtle);          /* Subtle gradient background */
+    border: 1px solid var(--color-stone-200);
+    border-radius: var(--radius-xl);             /* Rounded corners from our scale */
+    padding: 3rem;
+    box-shadow: var(--shadow-quote);             /* Custom quote card shadow */
+    max-width: 64rem;                            /* 1024px max width */
+    margin: 0 auto;                              /* Center it */
+    position: relative;                          /* For potential decorative elements */
+    backdrop-filter: blur(10px);                 /* Modern glass effect */
+    transition: var(--transition-normal);        /* Smooth transitions */
+  }
+  
+  /* Hover effect for the quote card */
+  .quote-card:hover {
+    transform: translateY(-2px);                 /* Subtle lift on hover */
+    box-shadow: var(--shadow-xl);                /* Bigger shadow on hover */
+  }
+  
+  /* Explanation Box */
+  .explanation-box {
+    background: var(--gradient-accent);          /* Subtle blue-stone gradient */
+    border: 1px solid var(--color-slate-200);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-left: 4px solid var(--color-accent);  /* Accent border for emphasis */
+    transition: var(--transition-fast);
+  }
+  
+  .explanation-box:hover {
+    border-left-color: var(--color-secondary);   /* Gold accent on hover */
+    transform: translateX(4px);                  /* Subtle slide effect */
+  }
+  
+  .explanation-title {
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
+    font-weight: 500;               /* Medium weight */
+    color: var(--color-stone-800);
+    margin-bottom: 1rem;
+  }
+  
+  .explanation-text {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-stone-700);
+  }
+  
+  /* Error/Warning Messages */
+  .error-box {
+    background: linear-gradient(135deg, var(--color-gold-50) 0%, var(--color-gold-100) 100%);
+    border: 1px solid var(--color-gold-300);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.5rem;
+    color: var(--color-gold-800);
+    font-size: var(--text-sm);
+    margin: 1rem 0;
+    border-left: 4px solid var(--color-warning);  /* Warning accent */
+    box-shadow: var(--shadow-warm);               /* Warm glow shadow */
+  }
+  
+  /* Beautiful Button System */
+  .btn {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 12rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Primary Button - Dark Stone */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-stone-700) 0%, var(--color-stone-800) 100%);
+    color: white;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--color-stone-800) 0%, var(--color-stone-900) 100%);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Secondary Button - Accent Blue */
+  .btn-secondary {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-slate-800) 100%);
+    color: white;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-secondary:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--color-slate-600) 0%, var(--color-accent) 100%);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .btn-secondary:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Disabled Button State */
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: var(--shadow-xs) !important;
+  }
+  
+  /* Button Loading Animation */
+  .btn-loading::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @media (max-width: 640px) {
+    .quote-card {
+      padding: 1.5rem;              /* Less padding on mobile */
+      border-radius: 0;              /* Remove border radius on mobile */
+    }
   }
 }

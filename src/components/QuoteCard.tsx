@@ -65,27 +65,27 @@ export default function QuoteCard({ initialQuote }: QuoteCardProps) {
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-stone-50 border border-stone-200 rounded-none sm:rounded-lg shadow-sm p-6 sm:p-8 lg:p-12">
+      <div className="quote-card">
         {quote && (
           <div className="mb-8 lg:mb-12">
-            <blockquote className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-light text-stone-800 mb-6 lg:mb-8 leading-relaxed lg:leading-loose tracking-wide">
-              "{quote.text}"
+            <blockquote className="quote-text">
+              {quote.text}
             </blockquote>
-            <cite className="text-base sm:text-lg lg:text-xl text-stone-600 font-normal tracking-wide">
-              — {quote.author}
+            <cite className="quote-author">
+              {quote.author}
             </cite>
           </div>
         )}
 
         {explanation && (
-          <div className="mb-8 lg:mb-12 p-6 bg-blue-50 border border-blue-200 rounded-sm">
-            <h3 className="text-lg font-medium text-stone-800 mb-4">Simplified Explanation:</h3>
-            <p className="text-base text-stone-700 leading-relaxed">{explanation}</p>
+          <div className="explanation-box">
+            <h3 className="explanation-title">Simplified Explanation:</h3>
+            <p className="explanation-text">{explanation}</p>
           </div>
         )}
         
         {error && (
-          <div className="mb-6 p-4 bg-amber-50 border border-amber-200 text-amber-800 rounded-sm text-sm sm:text-base">
+          <div className="error-box">
             {error}
           </div>
         )}
@@ -94,18 +94,18 @@ export default function QuoteCard({ initialQuote }: QuoteCardProps) {
           <button
             onClick={handleNewQuote}
             disabled={loading}
-            className="w-full sm:w-auto sm:min-w-48 bg-stone-700 hover:bg-stone-800 disabled:bg-stone-400 text-white font-normal py-3 sm:py-4 px-8 sm:px-12 rounded-none sm:rounded-sm transition-colors duration-300 text-sm sm:text-base tracking-wider uppercase"
+            className={`btn btn-primary ${loading ? 'btn-loading' : ''}`}
           >
-            {loading ? 'Reflecting...' : 'New Wisdom'}
+            {loading ? 'Reflecting' : 'New Wisdom'}
           </button>
           
           {quote && (
             <button
               onClick={handleExplainQuote}
               disabled={explaining || loading}
-              className="w-full sm:w-auto sm:min-w-48 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-normal py-3 sm:py-4 px-8 sm:px-12 rounded-none sm:rounded-sm transition-colors duration-300 text-sm sm:text-base tracking-wider uppercase"
+              className={`btn btn-secondary ${explaining ? 'btn-loading' : ''}`}
             >
-              {explaining ? 'Explaining...' : 'Explain Quote'}
+              {explaining ? 'Explaining' : 'Explain Quote'}
             </button>
           )}
         </div>
