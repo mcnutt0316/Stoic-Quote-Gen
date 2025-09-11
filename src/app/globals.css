@@ -144,45 +144,6 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  /* Decorative Quote Styling - The Magic Happens Here! */
-  .quote-text {
-    position: relative; /* This allows us to position the pseudo-elements */
-    padding: 0 2rem;    /* Give space for the decorative quotes */
-    font-family: var(--font-body);
-    font-size: var(--text-2xl);
-    line-height: var(--leading-relaxed);
-    font-weight: 300;
-    letter-spacing: var(--tracking-wide);
-    color: var(--color-stone-800);
-  }
-  
-  /* The Opening Quote Mark */
-  .quote-text::before {
-    content: """;                    /* The actual quote character */
-    position: absolute;              /* Position it exactly where we want */
-    top: -0.5rem;                   /* Move it up slightly */
-    left: -0.25rem;                 /* Move it left */
-    font-family: var(--font-heading); /* Use our fancy serif font */
-    font-size: 4rem;                /* Make it BIG */
-    line-height: 1;                 /* Tight line height */
-    color: var(--color-stone-300);  /* Light gray so it's decorative */
-    font-weight: 400;               /* Medium weight */
-    z-index: -1;                    /* Put it behind the text */
-  }
-  
-  /* The Closing Quote Mark */
-  .quote-text::after {
-    content: """;                    /* The closing quote character */
-    position: absolute;              /* Position it exactly where we want */
-    bottom: -2rem;                  /* Move it down */
-    right: -0.25rem;                /* Move it right */
-    font-family: var(--font-heading); /* Use our fancy serif font */
-    font-size: 4rem;                /* Make it BIG */
-    line-height: 1;                 /* Tight line height */
-    color: var(--color-stone-300);  /* Light gray so it's decorative */
-    font-weight: 400;               /* Medium weight */
-    z-index: -1;                    /* Put it behind the text */
-  }
   
   /* Elegant Heading Styles */
   .heading-primary {
@@ -389,6 +350,268 @@
   @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+  }
+  
+  /* Skeleton Loading System */
+  .skeleton {
+    background: linear-gradient(90deg, var(--color-stone-200) 25%, var(--color-stone-100) 50%, var(--color-stone-200) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    border-radius: var(--radius-md);
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* Skeleton Variants */
+  .skeleton-text {
+    height: 1em;
+    margin-bottom: 0.5em;
+  }
+  
+  .skeleton-text.large {
+    height: 1.5em;
+    width: 80%;
+  }
+  
+  .skeleton-text.medium {
+    height: 1.2em;
+    width: 60%;
+  }
+  
+  .skeleton-text.small {
+    height: 1em;
+    width: 40%;
+  }
+  
+  .skeleton-quote {
+    height: 4em;
+    margin-bottom: 1.5em;
+    border-radius: var(--radius-lg);
+  }
+  
+  .skeleton-author {
+    height: 1.2em;
+    width: 200px;
+    margin-left: auto;
+    margin-top: 1rem;
+  }
+  
+  /* Advanced Entrance Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Animation Classes */
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  .animate-fadeInLeft {
+    animation: fadeInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  .animate-fadeInRight {
+    animation: fadeInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  .animate-scaleIn {
+    animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  /* Animation Delays for Staggered Effects */
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+  
+  /* Start animations hidden */
+  [class*="animate-"] {
+    opacity: 0;
+  }
+  
+  /* Micro-interactions for Quote Text */
+  .quote-text {
+    position: relative;
+    padding: 0 2rem;
+    font-family: var(--font-body);
+    font-size: var(--text-2xl);
+    line-height: var(--leading-relaxed);
+    font-weight: 300;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-stone-800);
+    cursor: default;
+    transition: var(--transition-slow);
+  }
+  
+  /* Subtle highlight on hover */
+  .quote-text:hover {
+    color: var(--color-primary-light);
+    transform: translateY(-1px);
+  }
+  
+  /* Selection styling */
+  .quote-text::selection {
+    background-color: var(--color-gold-200);
+    color: var(--color-gold-900);
+  }
+  
+  .quote-text::-moz-selection {
+    background-color: var(--color-gold-200);
+    color: var(--color-gold-900);
+  }
+  
+  /* Enhanced decorative quotes with animation */
+  .quote-text::before {
+    content: """;
+    position: absolute;
+    top: -0.5rem;
+    left: -0.25rem;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--color-stone-300);
+    font-weight: 400;
+    z-index: -1;
+    transition: var(--transition-slow);
+  }
+  
+  .quote-text::after {
+    content: """;
+    position: absolute;
+    bottom: -2rem;
+    right: -0.25rem;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--color-stone-300);
+    font-weight: 400;
+    z-index: -1;
+    transition: var(--transition-slow);
+  }
+  
+  /* Animate decorative quotes on hover */
+  .quote-text:hover::before {
+    color: var(--color-secondary);
+    transform: translateY(-2px) scale(1.05);
+  }
+  
+  .quote-text:hover::after {
+    color: var(--color-secondary);
+    transform: translateY(2px) scale(1.05);
+  }
+  
+  /* Smooth State Transitions */
+  .content-enter {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+  }
+  
+  .content-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .content-exit {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+  }
+  
+  .content-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  /* Decorative Elements */
+  .quote-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--color-gold-300), var(--color-slate-300), var(--color-sage-300), var(--color-gold-300));
+    border-radius: var(--radius-xl);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+  }
+  
+  .quote-card:hover::before {
+    opacity: 0.1;
+  }
+  
+  /* Subtle Background Pattern */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 25% 25%, var(--color-gold-100) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, var(--color-slate-200) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.3;
+    z-index: -2;
+    pointer-events: none;
+  }
+  
+  /* Page Title Enhancement */
+  .heading-primary::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-gold-400) 100%);
+    margin: 1rem auto;
+    border-radius: 2px;
+    animation: fadeInUp 0.8s ease-out 0.5s both;
   }
   
   @media (max-width: 640px) {

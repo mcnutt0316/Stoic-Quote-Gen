@@ -65,13 +65,13 @@ export default function QuoteCard({ initialQuote }: QuoteCardProps) {
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="quote-card">
+      <div className="quote-card animate-scaleIn animate-delay-300">
         {quote && (
           <div className="mb-8 lg:mb-12">
-            <blockquote className="quote-text">
+            <blockquote className="quote-text animate-fadeInUp animate-delay-500">
               {quote.text}
             </blockquote>
-            <cite className="quote-author">
+            <cite className="quote-author animate-fadeInRight animate-delay-700">
               {quote.author}
             </cite>
           </div>
@@ -94,7 +94,7 @@ export default function QuoteCard({ initialQuote }: QuoteCardProps) {
           <button
             onClick={handleNewQuote}
             disabled={loading}
-            className={`btn btn-primary ${loading ? 'btn-loading' : ''}`}
+            className={`btn btn-primary animate-fadeInLeft animate-delay-1000 ${loading ? 'btn-loading' : ''}`}
           >
             {loading ? 'Reflecting' : 'New Wisdom'}
           </button>
@@ -103,7 +103,7 @@ export default function QuoteCard({ initialQuote }: QuoteCardProps) {
             <button
               onClick={handleExplainQuote}
               disabled={explaining || loading}
-              className={`btn btn-secondary ${explaining ? 'btn-loading' : ''}`}
+              className={`btn btn-secondary animate-fadeInRight animate-delay-1000 ${explaining ? 'btn-loading' : ''}`}
             >
               {explaining ? 'Explaining' : 'Explain Quote'}
             </button>
