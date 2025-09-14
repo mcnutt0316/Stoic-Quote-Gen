@@ -475,7 +475,7 @@
   /* Micro-interactions for Quote Text */
   .quote-text {
     position: relative;
-    padding: 0 2rem;
+    padding: 0 3rem;
     font-family: var(--font-body);
     font-size: var(--text-2xl);
     line-height: var(--leading-relaxed);
@@ -618,6 +618,9 @@
     .quote-card {
       padding: 1.5rem;              /* Less padding on mobile */
       border-radius: 0;              /* Remove border radius on mobile */
+    }
+    .quote-text {
+      padding: 0 1rem;              /* Much less padding on mobile */
     }
   }
 }
