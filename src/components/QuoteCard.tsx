@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { Quote } from '@/types/quote'
-import { fetchRandomQuote } from '@/lib/api'
 
 interface QuoteCardProps {
   initialQuote?: Quote | null
@@ -21,7 +20,9 @@ export default function QuoteCard({ initialQuote }: QuoteCardProps) {
     setExplanation(null)
     
     try {
-      const newQuote = await fetchRandomQuote()
+      const res = await fetch('/api/quote')
+      if (!res.ok) throw new Error('Failed to fetch quote')
+      const newQuote = await res.json()
       setQuote(newQuote)
     } catch (err) {
       setError('Failed to fetch new quote. Please try again.')
