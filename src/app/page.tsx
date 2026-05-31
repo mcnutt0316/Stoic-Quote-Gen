@@ -1,4 +1,4 @@
-import QuoteCard from '@/components/QuoteCard'
+import AppShell from '@/components/AppShell'
 import { fetchRandomQuote } from '@/lib/api'
 
 export default async function Home() {
@@ -22,7 +22,7 @@ export default async function Home() {
           </p>
         </header>
         
-        <QuoteCard initialQuote={initialQuote} />
+        <AppShell initialQuote={initialQuote} />
       </div>
     </main>
   )

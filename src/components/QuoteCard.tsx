@@ -4,11 +4,11 @@ import { useState } from 'react'
 import { Quote } from '@/types/quote'
 
 interface QuoteCardProps {
-  initialQuote?: Quote | null
+  quote: Quote | null
+  onQuoteChange: (q: Quote) => void
 }
 
-export default function QuoteCard({ initialQuote }: QuoteCardProps) {
-  const [quote, setQuote] = useState<Quote | null>(initialQuote || null)
+export default function QuoteCard({ quote, onQuoteChange }: QuoteCardProps) {
   const [loading, setLoading] = useState(false)
   const [explaining, setExplaining] = useState(false)
   const [explanation, setExplanation] = useState<string | null>(null)
@@ -23,7 +23,7 @@ export default function QuoteCard({ initialQuote }: QuoteCardProps) {
       const res = await fetch('/api/quote')
       if (!res.ok) throw new Error('Failed to fetch quote')
       const newQuote = await res.json()
-      setQuote(newQuote)
+      onQuoteChange(newQuote)
     } catch (err) {
       setError('Failed to fetch new quote. Please try again.')
       console.error('Error fetching quote:', err)
